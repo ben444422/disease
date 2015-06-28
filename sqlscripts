@@ -1,0 +1,31 @@
+CREATE TABLE disease (
+	disease_id INT AUTO_INCREMENT PRIMARY KEY,
+    disease VARCHAR(255) NOT NULL,
+    icd VARCHAR(100) NOT NULL,
+    rare BOOLEAN DEFAULT NULL,
+    ddb VARCHAR(10),
+    category VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE symptom (
+	symptom_id INT AUTO_INCREMENT PRIMARY KEY,
+    symptom VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE cause (
+	cause_id INT AUTO_INCREMENT PRIMARY KEY,
+    cause VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE disease_cause (
+	disease_id INT NOT NULL,
+	cause_id INT NOT NULL,
+	PRIMARY KEY (disease_id, cause_id)
+)
+
+CREATE TABLE disease_symptom (
+	disease_id INT NOT NULL,
+	symptom_id INT NOT NULL,
+	PRIMARY KEY (disease_id, symptom_id)
+)
